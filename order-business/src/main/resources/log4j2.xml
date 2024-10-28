@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+    <!-- Define appenders (where logs will be written) -->
+    <Appenders>
+        <!-- Console appender for writing logs to the console -->
+        <Console name="ConsoleAppender" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss} %-5level %logger{36} - %msg%n"/>
+        </Console>
+
+<!--        &lt;!&ndash; File appender for writing logs to a file &ndash;&gt;-->
+<!--        <File name="FileAppender" fileName="logs/app.log">-->
+<!--            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss} %-5level %logger{36} - %msg%n"/>-->
+<!--        </File>-->
+    </Appenders>
+
+    <!-- Define loggers (who will write logs) -->
+    <Loggers>
+        <!-- Root logger for all logging, attached to both Console and File -->
+        <Root level="info">
+            <AppenderRef ref="ConsoleAppender"/>
+            <AppenderRef ref="FileAppender"/>
+        </Root>
+
+        <!-- Custom logger for specific classes or packages -->
+        <Logger name="vn.ghtk" level="debug" additivity="false">
+            <AppenderRef ref="ConsoleAppender"/>
+        </Logger>
+    </Loggers>
+</Configuration>
